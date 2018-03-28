@@ -4,14 +4,27 @@ import android.os.Bundle;
 import android.util.Log;
 
 import android.app.Activity;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
     private static String TAG = "MainActivity";
+
+    private EditText etName;
+    private TextView tvHello;
+
+    public void onSayHi(android.view.View view) {
+        tvHello.setText("Hello " + etName.getText());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        etName = findViewById(R.id.etName);
+        tvHello = findViewById(R.id.tvHello);
+
         Log.d(TAG, "onCreate, the activity class is initialized");
     }
 
